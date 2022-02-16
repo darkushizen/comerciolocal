@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+{% block title %}lista usuarios{% endblock %}
+{% block section %}
+<h1 class="titulosection3">usuarios</h1>
+    <table class="table-bordered" border="solid">
+        
+    <tr class="cabeceratabla">
+    <th>dni</th>
+    <th>nombre</th>
+    <th>apellidos</th>
+    <th>pass</th>
+    <th>email</th>
+    <th>telefono</th>
+    <th>rol</th>
+    <th>puntos</th>
+    </tr>
+    <br>
+    {% if usuarios %}
+        {% for usuario in usuarios %}
+            <tr>
+                <th>{{usuario.dni}}</th>
+                <th>{{usuario.nombre}}</th>
+                <th>{{usuario.apellidos}}</th>
+                <th>{{usuario.pass}}</th>
+                <th>{{usuario.email}}</th>
+                <th>{{usuario.telefono}}</th>
+                <th>{{usuario.rol}}</th>
+                <th>{{usuario.puntos}}</th>
+            
+                <th><a href="{{ path('eliminarUsuario', {'id':usuario.id}) }}">Eliminar usuario</a></th>
+                <th><a href="{{ path('editarusuario', {'id':usuario.id}) }}">Editar usuario</a></th>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <br>
+        <br>
+        <p>no se han encontrado usuarios</p>
+    {% endif %}
+   </table>
+            
+{% endblock %}

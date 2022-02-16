@@ -1,0 +1,46 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory: { memory: null }
+        user_provider:
+            entity:
+                class: App\Entity\Usuario
+                property: dni
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            #anonymous: lazy
+            anonymous: ~
+            form_login:
+                provider: user_provider
+                login_path: login
+                check_path: login
+
+            
+            logout:
+                path: /logout
+                target: /
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        
+        - { path: ^/admin, roles: [ROLE_ADMIN] }
+        - { path: ^/gestor, roles: [ROLE_ADMIN, ROLE_GESTOR] }
+        - { path: ^/, roles: [ROLE_USER, ROLE_ADMIN, ROLE_GESTOR] }
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+
+    role_hierarchy:
+        #ROLE_USER: [ROLE_USER, ROLE_GESTOR, ROLE_ADMIN]
+        #ROLE_ADMIN: ROLE_ADMIN
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_GESTOR]
+
+    encoders:
+        #App\Entity\Usuario: plaintext
+        App\Entity\Usuario:
+            algorithm: auto

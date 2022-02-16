@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+{% block title %}confirmar{% endblock %}
+{% block section %}
+    <h1 class="titulosection3">confirma tu contraseña</h1>
+    <form method="POST" action="buscar">
+        <h3>introduce tu contraseña actual</h3>
+        
+        <input type="hidden" name="id" value="{{app.user.id}}"></input>
+        <input type="text" name="pass"></input>
+        <br><br>
+        <input type="submit" value="buscar" name="login">
+    </form>
+    
+    <div class="centro">
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <ul class="navbar navbar-dark  ">
+        {% if is_granted('ROLE_USER') or is_granted('ROLE_GESTOR')%}
+
+        <!-- nav____________bg-dark_______justify-content-end_____________________________________________________  -->
+        <!--_____________________________BOTON IZQUIERDA___________________________________________  -->
+
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Menú
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a class="enlacesaside" href="{{ path('inicio')}}">inicio</a></li>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_GESTOR') %}
+                        <li><a class="enlacesaside" href="{{ path('inicio')}}">inicio</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('nuevo_premio')}}">nuevo premio</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('buscar')}}">editar puntos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('nuevo_usuario')}}">nuevo usuario</a></li>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('nuevo_premio')}}">nuevo premio</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('buscar')}}">editar puntos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('nuevo_usuario')}}">nuevo usuario</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('nuevo_usuario_desde_admin')}}">nuevo usuario admin</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('usuarios')}}">usuarios</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+
+
+            <!--_________________________________BOTON DERECHA________________________________________-->
+
+            <div class="btn-group dropstart">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Perfil
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+
+                    <li>
+                        {% if is_granted('ROLE_GESTOR') %}
+                            <li>
+                            {{ app.user.username }}
+                            
+                            </li>
+                            <li>
+                            puntos: {{ app.user.puntos }}
+                            </li>
+                        {% endif %}
+
+                        {% if is_granted('ROLE_USER') %}
+                            <li>
+                            {{ app.user.username }}
+                            </li>
+                            <li>
+                                puntos: {{ app.user.puntos }}
+                            </li>
+                        {% endif %}
+                    </li>
+
+                    <li><hr class="dropdown-divider"></li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a class="enlacesaside" href="{{ path('editarpass', {'id':app.user.id})}}">Cambiar contraseña</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('registro')}}">Registro</a></li>
+                    {% endif %}
+                    {% if is_granted('ROLE_GESTOR') %}
+                        <li><a class="enlacesaside" href="{{ path('editarpass', {'id':app.user.id})}}">Cambiar contraseña</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="enlacesaside" href="{{ path('registro')}}">Registro</a></li>
+                    {% endif %}
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        {% if is_granted('ROLE_GESTOR') %}
+                            <a href="{{ path('logout') }}"> Cerrar sesión</a>
+                        {% endif %}
+
+                        {% if is_granted('ROLE_USER') %}
+                            <a class="enlacenav" href="{{ path('logout') }}"> Cerrar sesión</a>
+                        {% endif %}
+                    </li>
+
+                </ul>
+            </div>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block aside %}
+    <div>
+        
+    </div>
+{% endblock %}
+{% block footer %}
+    
+{% endblock %}

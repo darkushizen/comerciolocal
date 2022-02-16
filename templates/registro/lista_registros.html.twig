@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+{% block title %}lista premios{% endblock %}
+{% block section %}
+<h1 class="titulosection3">TUS PREMIOS CANJEADOS</h1>
+    <!--<table class="table-bordered"border="solid">-->
+        
+    
+    <br>
+  {% if premios %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for premio in premios %}
+        <div class="col">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="">
+            <div class="card-body">
+              <div class="card-header">{{premio.cabecera}}</div>
+              
+              <p class="card-text">{{premio.descripcion}}</p>
+            </div>
+            <div class="card-footer bg-transparent ">
+              
+              Canjeado el: {{premio.fecha|date('Y-m-d')}}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <br>
+    <br>
+    <p>no se han encontrado premios</p>
+  {% endif %}
+  <!-- </table>-->
+            
+{% endblock %}
+
+
+
+
+

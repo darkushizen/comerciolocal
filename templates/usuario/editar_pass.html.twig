@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Nuevo usuario{% endblock %}
+{% block section %}
+    <h1 class="titulosection3">Cambiar contraseña</h1>
+    
+    {{ form_start(formulario) }}
+    
+   
+    {{ form_row(formulario.pass, { 'label': 'Contraseña nueva' }) }}
+    <br>
+    
+    {{ form_end(formulario) }}
+{% endblock %}

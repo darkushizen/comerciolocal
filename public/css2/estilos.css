@@ -1,0 +1,159 @@
+
+
+html, body{
+    height:100%;
+    
+    margin:0;
+    
+    background-color:rgb(71, 71, 71);
+    
+}
+
+body{
+    padding:5px;
+    
+}
+
+.pruebadenav{
+    background-color:white;
+}
+
+
+
+.sheader{
+    height:50px;
+    color:white;
+    border-color:black;
+
+    padding:5px;
+    
+}
+.datos{
+    float:right;
+    COLOR: rgb(8, 221, 210); 
+    text-shadow: 0px 0px 9px #508AD3;
+    margin-top:1%;
+    margin-right:1%;
+}
+
+.fecha{
+    float:left;
+    margin-left:5%;
+    font-size:35px;
+
+    font-family: Arial Black; 
+    font-weight: bold; 
+    COLOR: rgb(8, 221, 210); 
+    text-shadow: 0px 0px 9px #508AD3;
+}
+
+
+.links{
+    min-width:100%;
+    background-color:blue;
+}
+
+
+
+h3{
+    color:white;
+}
+
+form{
+    text-align:center;
+    color:white;
+    width:250px;
+    margin:auto;
+}
+
+
+section{
+    
+    
+    /*background: rgba(5, 14, 5, 0.69);*/
+    
+
+    
+    /*border-style: solid;
+    border-radius:10px;
+    border-image:url(borde.png) 35;
+    border-width:10px;
+    */
+    text-align:center;
+    padding:20px;
+    
+
+    
+    
+}
+
+
+
+.titulosection{
+    font-family: Arial Black; 
+    font-weight: bold; 
+    font-size: 50px; 
+    color: #fff; 
+    text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1)
+    
+}
+
+
+.titulosection3{
+    font-family: Arial Black; 
+    font-weight: bold; 
+    font-size: 50px; 
+    COLOR: rgb(0, 0, 0); 
+    text-shadow: 0px 0px 9px #508AD3;
+}
+
+
+
+
+
+
+
+
+.titulosection2{
+    font-family: Arial Black; 
+    font-weight: bold; 
+    font-size: 50px; 
+    /*color: #fff; 
+    text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1)
+    */
+    COLOR: rgb(8, 221, 210); 
+    text-shadow: 0px 0px 9px #508AD3;
+}
+
+.advertencia{
+    font-size: 20px; 
+    COLOR: rgb(8, 221, 210); 
+    text-shadow: 0px 0px 9px #508AD3;
+}
+
+
+
+.enlacesadmin{
+    font-family: Arial; 
+    font-size: 15px; 
+    COLOR: rgb(8, 221, 210); 
+    text-shadow: 0px 0px 9px #508AD3;
+    text-decoration: none;
+}
+
+.enlacesaside{
+    font-family: Arial; 
+    font-size: 20px; 
+    COLOR: rgb(243, 243, 243); 
+    text-shadow: 0px 0px 9px #508AD3;
+    text-decoration: none;
+}
+
+hr{
+    font-size: 10px; 
+    COLOR: rgb(8, 221, 210); 
+    text-shadow: 0px 0px 9px #508AD3;
+}
+.premio{
+    border-style:solid;
+}

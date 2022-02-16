@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Insertar puntos{% endblock %}
+{% block section %}
+    <h1 class="titulosection3">Insertar puntos</h1>
+    
+    {{ form_start(formulario) }}
+    {{ form_row(formulario.puntos, { 'label': 'Puntos' }) }}
+    <br>
+    {{ form_end(formulario) }}
+
+{% endblock %}

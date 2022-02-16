@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+{% block title %}buscar usuario{% endblock %}
+{% block section %}
+    <h1 class="titulosection3">buscando usuario</h1>
+    <form method="POST" action="buscar">
+        <h3>introduce el dni del usuario</h3>
+        
+        <input type="text" name="dni"></input>
+        <br><br>
+        <input type="submit" value="buscar" name="login">
+    </form>
+    
+    <div class="centro">
+        
+    </div>
+{% endblock %}

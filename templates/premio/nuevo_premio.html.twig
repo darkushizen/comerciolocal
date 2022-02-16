@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Nuevo premio{% endblock %}
+{% block section %}
+    <h1 class="titulosection3">Nuevo premio</h1>
+    
+    {{ form_start(formulario) }}
+    {{ form_row(formulario.cabecera, { 'label': 'Cabecera' }) }}
+    {{ form_row(formulario.descripcion, { 'label': 'Descripción' }) }}
+    {{ form_row(formulario.valor, { 'label': 'Valor' }) }}
+    {{ form_row(formulario.ndisponibles, { 'label': 'Cantidad' }) }}
+    <br>
+    
+    {{ form_end(formulario) }}
+{% endblock %}

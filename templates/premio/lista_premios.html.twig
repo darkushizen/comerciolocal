@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+{% block title %}lista premios{% endblock %}
+{% block section %}
+  <h1 class="titulosection3">premios</h1>
+  <br>
+  {% if premios %}
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for premio in premios %}
+        <div class="col">
+          <div class="card">
+            <img src="{{ asset('uploads/fotos/'~ premio.foto) }}" class="card-img-top" alt="">
+            <div class="card-body">
+              <div class="card-header">{{premio.cabecera}}</div> 
+              <p class="card-text">{{premio.descripcion}}</p>
+            </div>
+            <div class="card-footer bg-transparent ">
+              Precio: {{premio.valor}} puntos.
+              <br>
+              Stock: {{premio.ndisponibles}} Unidad/es.
+              <br>
+              Publicado el: {{premio.fecha|date('Y-m-d')}}
+            </div>
+            <div class="card-footer bg-transparent">
+                <th><a href="{{ path('canjear', {'valor':premio.valor, 'cabecera':premio.cabecera, 'descripcion': premio.descripcion, 'id':app.user.id, 'idpremio':premio.id}) }}">canjear puntos</a></th>
+              {% if is_granted('ROLE_ADMIN') %}
+                <th><a href="{{ path('eliminarPremio', {'id':premio.id}) }}">Eliminar premio</a></th>     
+                <th><a href="{{ path('editarpremio', {'id':premio.id}) }}">Editar premio</a></th>
+              {% endif %}      
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+  </div>
+  {% else %}
+      <br>
+      <br>
+      <p>no se han encontrado premios</p>
+  {% endif %}          
+{% endblock %}
+
+
